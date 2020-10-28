@@ -30,20 +30,27 @@ This procedure is also documented in the Route 53 Developer Guide\. For more inf
 
 1. In the left navigation pane, choose **Hosted zones**\.
 
-1. Choose **Create record set** to add a new DNS record to the hosted zone\.
+1. Click **Create record** button\.
 
-1. Choose one of the following record types:  
-**A – IPv4 address**  
-An address \(A\) record maps a domain, such as `example.com`, or a subdomain, such as `blog.example.com`, to a web server’s IP address, such as `192.0.2.255`\.  
+1. Choose the routing policy
+![RoutingPolicy](https://i.ibb.co/6HYnHnP/Route53-Routing-Policy.png)
 
-   1. Keep the **Name** text box empty to point the apex of your domain, such as `example.com`, to an IP address, or enter a subdomain\.
+1. Click **Define Simple Record** to add a new DNS record to the hosted zone\.
 
-   1. Choose **A – IPv4 address** in the **Type** drop\-down menu\.
+   1. Give **Record Name** for your subdomain, such as `blog.example.com`\.
 
-   1. Enter the static IP address \(public IP address\) of your Lightsail instance in the **Value** text box\.
+   1. For **Value route traffic to**, select `IP address or another value depending on record type` and the enter the static IP address \(public IP address\) of your Lightsail instance, such as 192.0.2.255\.
 
-   1. Keep the routing policy as **Simple**\.  
-![\[Address record example in a Route 53 hosted zone.\]](https://d9yljz1nd5001.cloudfront.net/en_us/2f596334045058acdba2fdcc5e035cef/images/amazon-lightsail-route-53-hosted-zone-a-record.png)
+   1. Choose **A - Route traffic to IPv4 address and some AWS recources** in the **Record Type** drop\-down menu\.
+   
+   1. 300 seconds is default value of **TTL (Time to live)**\.
+
+1. Complete the process by clicking the **Define simple record** button, and then **Create Records** button to add the record to your hosted zone\.
+
+   Allow time for the change to propagate through the internet's DNS\. This may take a few minutes to several hours\.
+
+   To edit an existing record set in the Route 53 hosted zone, choose the record to edit, enter your changes, and then choose **Save Changes**\.
+
 **CNAME – Canonical name**  
 A canonical name \(CNAME\) record maps an alias or subdomain, such as `www.example.com`, to a domain, such as `example.com`, or a subdomain, such as `www2.example.com`\. A CNAME record redirects one domain to another\.  
 
